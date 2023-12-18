@@ -16,6 +16,10 @@ export const validateForm = (email,password,confirmPassword)=>{
     return null ;
 }
 
+export const validateTitle = (title,completed)=>{
+    if(title==="") return "Please provide title for your task"
+    if(!completed) return "please select  yes or no "
+}
  
 // export const validateData = (email,password)=>{
 //     const isEmailValid = /^[\w.-]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);

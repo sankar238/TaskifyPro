@@ -26,10 +26,10 @@ const Header = () => {
           />
         {/* </div> */}
         <div
-          className=" w-[240px] ml-4 px-4 py-2 rounded-lg text-2xl font-bold
+          className=" w-[250px] ml-4 px-4 py-2 rounded-lg text-2xl font-bold
           text-black border bg-white"
         >
-          { user ? (`Welcome..! ${user.name}`) : "Please...! Login..."}
+          { user ? (`Welcome..! ${user.name}`) : "Welcome...dear!"}
         </div>
       </div>
       <div className="flex flex-row-reverse">
@@ -37,24 +37,26 @@ const Header = () => {
           ? (<>
             <div
               className="w-32 text-center mx-4 py-2 rounded-lg text-lg cursor-pointer 
-               bg-red-500  text-white border"
+               bg-red-400  text-white border"
               onClick={handleLogOut}
             >
               LogOut
             </div>
-            <div
-              className=" w-32 mr-10 py-2 text-center rounded-lg text-xl cursor-pointer
-               bg-blue-600  text-white border"
-            >
-              AddTask
-            </div>
+            <Link to="/addTask">
+              <div
+                className=" w-32 mr-10 py-2 text-center rounded-lg text-xl cursor-pointer
+                bg-blue-600  text-white border"
+              >
+                AddTask
+              </div>
+            </Link>
           </>
           )
           : (
             <Link to={"/login"}>
               <div
                className=" w-40 text-center px-4 py-2 rounded-lg text-2xl 
-                text-white border bg-purple-600"
+                text-white border bg-purple-600 mr-10"
               >
                 LogIn
               </div>

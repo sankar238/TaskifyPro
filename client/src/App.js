@@ -19,6 +19,9 @@ const appRouter = createBrowserRouter([
   },{
     path:"/signup",
     element : <Signup/>
+  },{
+    path : "/addTask",
+    element : <AddTask/>
   }
   // {
   //   path: "/",

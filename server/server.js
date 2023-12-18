@@ -1,7 +1,8 @@
 const app = require("./app");
 const connectDB = require("./config/connect_db");
 const PORT = process.env.PORT || 5050;
-
+const cors = require("cors");
+app.use(cors())
 
 const startServer = async () => {
     try {

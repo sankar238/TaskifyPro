@@ -1,11 +1,11 @@
 import Header from "./Header";
-import { Outlet } from "react-router-dom";
-
+import Body from "./Body";
 const HomePage = () => {
+
   return (
     <div>
         <Header/>
-        {/* <Outlet/> */}
+        <Body/>
     </div>
 
   )

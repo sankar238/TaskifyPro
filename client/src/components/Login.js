@@ -24,13 +24,14 @@ const Login = () => {
         setErrorMessage(message)
         if(message) return ;
 
-        // API call & handling response
+        // API call 
         const response = await axios.post(`${BASE_URL}/api/user/login`,{email,password});
         const result = response.data.message;
         console.log(response.data)
         const {token , user} = response.data;
         const {name,emailId} = user;
         const uid = user._id;
+        // handling response
         if(result.includes("success")){
           alert(result);
           navigate("/");
@@ -46,7 +47,13 @@ const Login = () => {
         passwordRef.current.value="";
     }catch(err){
         console.log(err)
-        setErrorMessage(err.response.data.message)
+        if(err&& err.response){
+          setErrorMessage(err.response.data.message)
+        }
+        else(
+          setErrorMessage("an error occured")
+        )
+   
     }
   };
 
@@ -74,7 +81,7 @@ const Login = () => {
             </label>
             <input
               className="border rounded w-full py-[10px] px-4 text-gray-700 
-              leading-normal focus:outline-none focus:shadow-outline"
+              leading-normal focus:outline-none "
               id="email"
               type="email"
               placeholder="Enter your email"

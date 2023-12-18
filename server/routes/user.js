@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/user");
+const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
@@ -34,6 +34,7 @@ router.post("/register", async (req,res)=>{
         })
         await newUser.save();
 
+        // sending response
         res.status(200).json({
             message : "registration successful & please Login",
             newUser
@@ -59,10 +60,11 @@ router.post("/login",async(req,res)=>{
             })
         }
         //comparing password & token generation
+        console.log(secret)
         const match = await bcrypt.compare(password,user.password);
         if(match){
             const token = jwt.sign({
-                exp : Math.floor(Date.now()/1000)+(60*60),
+                exp : Math.floor(Date.now()/1000)+(600*600),
                 data : user._id
             },secret)
             res.status(200).json({
